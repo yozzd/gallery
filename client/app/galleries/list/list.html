@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="col-md-4" ng-repeat="data in vm.datas">
+        <div class="row" ng-show="data.images.length>0">
+            <div class="col-md-4">
+                <a ui-sref=".view({id: data._id})">
+                    <img ng-src="app/album/images/{{data._id}}/original/{{data.images[0].name}}" width="100px" height="100px">
+                </a>
+            </div>
+            <div class="col-md-8">
+                <div style="font-size: 16px;"><a ui-sref=".view({id: data._id})">{{data.name}}</a></div>
+                <div class="text-muted">{{data.images.length}} image(s)</div>
+                <div class="text-muted">By {{data.initial}}</div>
+            </div>
+        </div>
+    </div>
+</div>

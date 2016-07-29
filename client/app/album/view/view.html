@@ -1,0 +1,42 @@
+<header class="viewer-unit">
+    <a class="back" ng-href="album/content/{{vm.id}}" ng-show="vm.isOperator()">Back to album</a>
+    <a class="back" ui-sref="main.galleries.view({id: vm.id})" ng-hide="vm.isOperator()">Back to galleries</a>
+    <h4>{{vm.view.title}}</h4>
+    <div class="cimg">
+        <a class="pnav" ng-href="album/content/{{vm.id}}/view/{{vm.pidprev}}" ng-hide="vm.pidprev===undefined">
+            <span class="fa fa-chevron-circle-left fa-3x fa-inverse"></span>
+        </a>
+        <img ng-src="app/album/images/{{vm.data._id}}/original/{{vm.view.name}}" ng-if="vm.view.width===1280" width="720px">
+        <img ng-src="app/album/images/{{vm.data._id}}/original/{{vm.view.name}}" ng-if="vm.view.width<1280" width="{{vm.view.width}}px">
+        <a class="nnav" ng-href="album/content/{{vm.id}}/view/{{vm.pidnext}}" ng-hide="vm.pidnext===undefined">
+            <span class="fa fa-chevron-circle-right fa-3x fa-inverse"></span>
+        </a>
+    </div>
+    <!--<div class="slider">
+        <a href="" ng-click="vm.pslider()" ng-hide="vm.idx===1||vm.phide">
+            <span class="fa fa-chevron-left fa-inverse"></span>
+        </a>
+        <ul class="list-inline">
+            <li ng-repeat="slider in vm.slider">
+                <a ng-href="album/content/{{vm.id}}/view/{{slider._id}}" data-title="{{slider.title}}" bs-tooltip>
+                    <img ng-src="app/album/images/{{vm.data._id}}/original/{{slider.name}}" ng-class="{active:vm.view.name===slider.name}" width="50px" height="50px">
+                </a>
+            </li>
+        </ul>
+        <a href="" ng-click="vm.nslider()" ng-hide="vm.idx===vm.data.images.length-2||vm.nhide">
+            <span class="fa fa-chevron-right fa-inverse"></span>
+        </a>
+    </div>-->
+    <ul class="action list-inline">
+        <li>
+            <a href="" data-title="Share" bs-tooltip>
+                <span class="fa fa-share fa-lg fa-inverse"></span>
+            </a>
+        </li>
+        <li>
+            <a ng-href="/api/albums/download/{{vm.data._id}}/{{vm.view.name}}" target="_self" data-title="Download" bs-tooltip>
+                <span class="fa fa-download fa-lg fa-inverse"></span>
+            </a>
+        </li>
+    </ul>
+</header>

@@ -1,0 +1,42 @@
+<header class="hero-unit">
+    <div class="container">
+        <div class="col-md-7">
+            <h1>One Look
+                <br/>Is Worth A Thousand Words</h1>
+            <p class="lead">Have a good day...</p>
+        </div>
+        <div class="col-md-5">
+            <img ng-src="assets/images/{{vm.look.img}}" class="pull-right">
+            <div style="margin-top: 10px;" class="pull-right">
+                <strong>{{vm.look.title}}</strong>
+                <small>&#8211;&#8211;<i>nabhan@deviantart.com</i></small>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container" style="margin-top:50px;">
+    <p class="lead">Latest Images</p>
+    <div class="tblank" ng-hide="vm.latest.length>0">
+        No Images!
+    </div>
+    <div justified ng-show="vm.latest.length>0">
+        <a ng-repeat="img in vm.latest|limitTo:vm.limit" ui-sref="main.album.content.view({id:img.id, pid:img.pid})" scroll="img" repeat-done>
+            <img ng-src="app/album/images/{{img.id}}/original/{{img.name}}" alt="{{img.title}}">
+            <div class="caption">
+                <div>
+                    <strong>{{img.title}}</strong>
+                </div>
+                <small>by {{img.initial}} on {{img.timestamp|date:'dd MMMM yyyy HH:mm'}}</small>
+            </div>
+        </a>
+    </div>
+    <div class="text-center" style="margin-top:30px;" ng-hide="vm.load">
+        <button class="btn btn-sm btn-flat-plain" ng-click="vm.more()" ng-disabled="vm.disabled" id="more">More...</button>
+    </div>
+    <div class="cssload-square" ng-show="vm.load">
+        <div class="cssload-square-part cssload-square-green"></div>
+        <div class="cssload-square-part cssload-square-pink"></div>
+        <div class="cssload-square-blend"></div>
+    </div>
+</div>

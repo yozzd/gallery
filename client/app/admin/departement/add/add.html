@@ -1,0 +1,38 @@
+<div class="modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form name="form" ng-submit="add.submit(form)" class="form-horizontal" novalidate>
+                <div class="modal-header">
+                    <button type="button" class="close" aria-label="Close" ng-click="$hide()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">Add Departement</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Departement Name</label>
+                        <div class="col-sm-9" ng-class="{'has-error':form.name.$error.required && add.submitted}">
+                            <input type="text" name="name" class="form-control input-sm" ng-model="add.data.name" required />
+                            <p class="help-block" ng-show="form.name.$error.required && add.submitted">
+                                <span class="fa fa-times-circle fa-fw"></span> This field is required
+                            </p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Departement Initial</label>
+                        <div class="col-sm-9" ng-class="{'has-error':form.initial.$error.required && add.submitted}">
+                            <input type="text" name="initial" class="form-control input-sm" ng-model="add.data.initial" required />
+                            <p class="help-block" ng-show="form.initial.$error.required && add.submitted">
+                                <span class="fa fa-times-circle fa-fw"></span> This field is required
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-sm btn-flat-plain" ng-click="$hide()">CLOSE</button>
+                    <button type="submit" class="btn btn-sm btn-flat">SAVE</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

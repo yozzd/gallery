@@ -1,0 +1,38 @@
+<div class="navbar navbar-default navbar-static-top" ng-controller="NavbarController">
+    <div class="container">
+        <div class="col-md-12">
+            <div class="navbar-header">
+                <a ui-sref="main" class="navbar-brand">Gallery</a>
+            </div>
+            <div>
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Explore <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a ui-sref="main">Latest Images</a></li>
+                            <li><a ui-sref="main.galleries">Galleries</a></li>
+                        </ul>
+                    </li>
+
+                    <li ng-show="nav.isOperator()" ui-sref-active="active">
+                        <a ui-sref="main.album">Manage Album</a>
+                    </li>
+                    <li ng-show="nav.isAdmin()" ui-sref-active="active"><a ui-sref="admin">Admin</a></li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li ng-hide="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="login">Login</a></li>
+                    <li ng-show="nav.isLoggedIn()">
+                        <p class="navbar-text">Hello {{nav.getCurrentUser().name}}</p>
+                    </li>
+                    <li ng-show="nav.isLoggedIn()" ui-sref-active="active">
+                        <a ui-sref="settings">
+                            <span class="glyphicon glyphicon-cog"></span>
+                        </a>
+                    </li>
+                    <li ng-show="nav.isLoggedIn()"><a ui-sref="logout">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+<ul class="sidebar" ng-show="sidenav.isAdmin()">
+    <li>
+        <a ui-sref="admin" ng-class="{active:sidenav.$state.current.name==='admin'}">
+            <span class="fa fa-book fa-fw"></span>Album</a>
+    </li>
+    <li class="group">SETTINGS</li>
+    <li>
+        <a ui-sref="admin.departement" ng-class="{active:sidenav.$state.current.name==='admin.departement'}">
+            <span class="fa fa-group fa-fw"></span>Departement</a>
+    </li>
+    <li>
+        <a ui-sref="admin.operator" ng-class="{active:sidenav.$state.current.name==='admin.operator'}">
+            <span class="fa fa-user fa-fw"></span>Operator</a>
+    </li>
+</ul>
+
+<ul class="sidebar" ng-show="sidenav.isOperator()">
+    <li>
+        <a ui-sref="main.album" ng-class="{active:sidenav.$state.current.name==='main.album'}">
+            <span class="fa fa-book fa-fw"></span>Album</a>
+    </li>
+    <li class="group" ng-if="sidenav.$state.current.name==='main.album.content'||sidenav.$state.current.name==='main.album.content.upload'">SETTINGS</li>
+    <li ng-if="sidenav.$state.current.name==='main.album.content'||sidenav.$state.current.name==='main.album.content.upload'">
+        <a ui-sref="main.album.content" ng-class="{active:sidenav.$state.current.name==='main.album.content'}">
+            <span class="fa fa-th-large fa-fw"></span>Image</a>
+    </li>
+    <li ng-if="sidenav.$state.current.name==='main.album.content'||sidenav.$state.current.name==='main.album.content.upload'">
+        <a ui-sref="main.album.content.upload" ng-class="{active:sidenav.$state.current.name==='main.album.content.upload'}">
+            <span class="fa fa-upload fa-fw"></span>Upload Image</a>
+    </li>
+</ul>
