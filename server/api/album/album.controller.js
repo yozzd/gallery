@@ -10,6 +10,8 @@
 'use strict';
 
 import _ from 'lodash';
+var path = require('path');
+var rootdir = path.normalize(__dirname + '/../../..');
 import Album from './album.model';
 
 import fs from 'fs-extra';
@@ -105,7 +107,7 @@ export function create(req, res) {
             }
         })
         .then(album => {
-            return fs.ensureDirAsync('./client/assets/images/' + album._id)
+            return fs.ensureDirAsync(rootdir + '/client/assets/images/' + album._id)
                 .then(() => {
                     return album;
                 });
@@ -132,7 +134,7 @@ export function destroy(req, res) {
         .then(handleEntityNotFound(res))
         .then(removeEntity(res))
         .then(() => {
-            return fs.removeAsync('./client/assets/images/' + req.params.id)
+            return fs.removeAsync(rootdir + '/client/assets/images/' + req.params.id)
         })
         .catch(handleError(res));
 }
@@ -154,14 +156,14 @@ export function images(req, res) {
                             if (info.width > 1280) {
                                 return easyimage.resize({
                                         src: map.path,
-                                        dst: './client/assets/images/' + album._id + '/original/' + map.name,
+                                        dst: rootdir + '/client/assets/images/' + album._id + '/original/' + map.name,
                                         width: 1280
                                     })
                                     .then(() => {
                                         return album;
                                     })
                             } else {
-                                return fs.copyAsync(map.path, './client/assets/images/' + album._id + '/original/' + map.name)
+                                return fs.copyAsync(map.path, rootdir + '/client/assets/images/' + album._id + '/original/' + map.name)
                                     .then(() => {
                                         return album;
                                     })
@@ -169,7 +171,7 @@ export function images(req, res) {
                         })
                 })
                 .then(album => {
-                    return easyimage.info('./client/assets/images/' + album._id + '/original/' + map.name)
+                    return easyimage.info(rootdir + '/client/assets/images/' + album._id + '/original/' + map.name)
                         .then(info => {
                             album.images.push({
                                 name: map.name,
@@ -191,7 +193,7 @@ export function images(req, res) {
 }
 
 export function download(req, res) {
-    var path = './client/assets/images/' + req.params.dir + '/original/' + req.params.image;
+    var path = rootdir + '/client/assets/images/' + req.params.dir + '/original/' + req.params.image;
     var mimetype = mime.lookup(path);
 
     res.setHeader('Content-disposition', 'attachment; filename=' + req.params.image);
