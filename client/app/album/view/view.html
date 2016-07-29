@@ -6,8 +6,8 @@
         <a class="pnav" ng-href="album/content/{{vm.id}}/view/{{vm.pidprev}}" ng-hide="vm.pidprev===undefined">
             <span class="fa fa-chevron-circle-left fa-3x fa-inverse"></span>
         </a>
-        <img ng-src="app/album/images/{{vm.data._id}}/original/{{vm.view.name}}" ng-if="vm.view.width===1280" width="720px">
-        <img ng-src="app/album/images/{{vm.data._id}}/original/{{vm.view.name}}" ng-if="vm.view.width<1280" width="{{vm.view.width}}px">
+        <img ng-src="assets/images/{{vm.data._id}}/original/{{vm.view.name}}" ng-if="vm.view.width===1280" width="720px">
+        <img ng-src="assets/images/{{vm.data._id}}/original/{{vm.view.name}}" ng-if="vm.view.width<1280" width="{{vm.view.width}}px">
         <a class="nnav" ng-href="album/content/{{vm.id}}/view/{{vm.pidnext}}" ng-hide="vm.pidnext===undefined">
             <span class="fa fa-chevron-circle-right fa-3x fa-inverse"></span>
         </a>
@@ -19,7 +19,7 @@
         <ul class="list-inline">
             <li ng-repeat="slider in vm.slider">
                 <a ng-href="album/content/{{vm.id}}/view/{{slider._id}}" data-title="{{slider.title}}" bs-tooltip>
-                    <img ng-src="app/album/images/{{vm.data._id}}/original/{{slider.name}}" ng-class="{active:vm.view.name===slider.name}" width="50px" height="50px">
+                    <img ng-src="assets/images/{{vm.data._id}}/original/{{slider.name}}" ng-class="{active:vm.view.name===slider.name}" width="50px" height="50px">
                 </a>
             </li>
         </ul>

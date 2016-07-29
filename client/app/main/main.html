@@ -22,7 +22,7 @@
     </div>
     <div justified ng-show="vm.latest.length>0">
         <a ng-repeat="img in vm.latest|limitTo:vm.limit" ui-sref="main.album.content.view({id:img.id, pid:img.pid})" scroll="img" repeat-done>
-            <img ng-src="app/album/images/{{img.id}}/original/{{img.name}}" alt="{{img.title}}">
+            <img ng-src="assets/images/{{img.id}}/original/{{img.name}}" alt="{{img.title}}">
             <div class="caption">
                 <div>
                     <strong>{{img.title}}</strong>

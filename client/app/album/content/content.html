@@ -1,22 +1,22 @@
 <div class="container">
-  <!--<div>
+    <!--<div>
         <ncy-breadcrumb></ncy-breadcrumb>
     </div>
     <a ui-sref=".upload">Upload Image</a>-->
-  <div class="col-md-2">
-    <sidebar></sidebar>
-  </div>
-  <div class="col-md-10">
-    <p class="lead">
-      <span class="fa fa-folder-open-o"></span>
-      {{vm.data.name}}
-      <small class="text-muted" style="font-size: 50%;">{{vm.data.images.length}}
-        image(s)</small>
-    </p>
-    <div justified>
-      <a ng-repeat="img in vm.data.images" ui-sref=".view({pid:img._id})" repeat-done>
-        <img ng-src="app/album/images/{{vm.data._id}}/original/{{img.name}}" alt="{{img.title}}">
-      </a>
+    <div class="col-md-2">
+        <sidebar></sidebar>
     </div>
-  </div>
+    <div class="col-md-10">
+        <p class="lead">
+            <span class="fa fa-folder-open-o"></span>
+            {{vm.data.name}}
+            <small class="text-muted" style="font-size: 50%;">{{vm.data.images.length}} image(s)
+            </small>
+        </p>
+        <div justified>
+            <a ng-repeat="img in vm.data.images" ui-sref=".view({pid:img._id})" repeat-done>
+                <img ng-src="assets/images/{{vm.data._id}}/original/{{img.name}}" alt="{{img.title}}">
+            </a>
+        </div>
+    </div>
 </div>

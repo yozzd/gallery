@@ -2,7 +2,7 @@
     <div class="col-md-4">
         <div class="row">
             <div class="col-md-2">
-                <img ng-src="app/album/images/{{vm.data._id}}/original/{{vm.data.images[0].name}}" width="50px" height="50px">
+                <img ng-src="assets/images/{{vm.data._id}}/original/{{vm.data.images[0].name}}" width="50px" height="50px">
             </div>
             <div class="col-md-10">
                 <div style="font-size: 16px;">{{vm.data.name}}</div>
@@ -13,7 +13,7 @@
     <div class="col-md-8">
         <div justified>
             <a ng-repeat="img in vm.data.images" ui-sref="main.album.content.view({id:vm.data._id, pid:img._id})" repeat-done>
-                <img ng-src="app/album/images/{{vm.data._id}}/original/{{img.name}}" alt="{{img.title}}">
+                <img ng-src="assets/images/{{vm.data._id}}/original/{{img.name}}" alt="{{img.title}}">
             </a>
         </div>
     </div>

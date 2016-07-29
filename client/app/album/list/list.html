@@ -15,7 +15,7 @@
                 <div class="col-md-4">
                     <a ui-sref=".content({id: data._id})">
                         <img ng-show="data.images[0].name===undefined" ng-src="assets/images/noimage.png" width="100px" height="100px">
-                        <img ng-hide="data.images[0].name===undefined" ng-src="app/album/images/{{data._id}}/original/{{data.images[0].name}}" width="100px" height="100px">
+                        <img ng-hide="data.images[0].name===undefined" ng-src="assets/images/{{data._id}}/original/{{data.images[0].name}}" width="100px" height="100px">
                     </a>
                 </div>
                 <div class="col-md-7">
